@@ -1,13 +1,29 @@
 package com.gestion.peliculas.modelo;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "seen_movies")
 public class Pelicula {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "title", length = 255, nullable = false)
     private String title;
+
+    @Column(name = "original_title", length = 255, nullable = false)
     private String originalTitle;
+
+    @Column(name = "year", length = 4, nullable = false)
     private int year;
+
+    @Column(name = "date_seen", length = 10, nullable = false)
     private LocalDate dateSeen;
+
+    @Column(name = "movie_language", length = 255, nullable = false)
     private String language;
 
     public Pelicula(int id, String title, String originalTitle, int year, LocalDate dateSeen, String language) {
