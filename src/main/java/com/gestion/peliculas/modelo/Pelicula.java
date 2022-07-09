@@ -26,7 +26,12 @@ public class Pelicula {
     @Column(name = "movie_language", length = 255, nullable = false)
     private String language;
 
+    public Pelicula() {
+
+    }
+
     public Pelicula(int id, String title, String originalTitle, int year, LocalDate dateSeen, String language) {
+        super();
         this.id = id;
         this.title = title;
         this.originalTitle = originalTitle;
