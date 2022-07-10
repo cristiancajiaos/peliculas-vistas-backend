@@ -9,7 +9,7 @@ public class Pelicula {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "title", length = 255, nullable = false)
     private String title;
@@ -33,7 +33,7 @@ public class Pelicula {
 
     }
 
-    public Pelicula(int id, String title, String originalTitle, int year, LocalDate dateSeen, String language, String seenOn) {
+    public Pelicula(Long id, String title, String originalTitle, int year, LocalDate dateSeen, String language, String seenOn) {
         super();
         this.id = id;
         this.title = title;
@@ -44,11 +44,11 @@ public class Pelicula {
         this.seenOn = seenOn;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
