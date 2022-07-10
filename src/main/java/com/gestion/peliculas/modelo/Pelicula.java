@@ -26,11 +26,14 @@ public class Pelicula {
     @Column(name = "movie_language", length = 255, nullable = false)
     private String language;
 
+    @Column(name = "seen_on", length = 255, nullable = false)
+    private String seenOn;
+
     public Pelicula() {
 
     }
 
-    public Pelicula(int id, String title, String originalTitle, int year, LocalDate dateSeen, String language) {
+    public Pelicula(int id, String title, String originalTitle, int year, LocalDate dateSeen, String language, String seenOn) {
         super();
         this.id = id;
         this.title = title;
@@ -38,6 +41,7 @@ public class Pelicula {
         this.year = year;
         this.dateSeen = dateSeen;
         this.language = language;
+        this.seenOn = seenOn;
     }
 
     public int getId() {
@@ -87,5 +91,14 @@ public class Pelicula {
     public void setLanguage(String language) {
         this.language = language;
     }
+
+    public String getSeenOn() {
+        return seenOn;
+    }
+
+    public void setSeenOn(String seenOn) {
+        this.seenOn = seenOn;
+    }
+
 }
 
