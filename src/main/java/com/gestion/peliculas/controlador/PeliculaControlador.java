@@ -27,4 +27,9 @@ public class PeliculaControlador {
         Pelicula pelicula = repositorio.findById(id).orElseThrow(() -> new ResourceNotFoundException("No existe la película con el ID " + id));
         return ResponseEntity.ok(pelicula);
     }
+
+    @PostMapping("/peliculas")
+    public Pelicula guardarPelicula(@RequestBody Pelicula pelicula) {
+        return repositorio.save(pelicula);
+    }
 }
