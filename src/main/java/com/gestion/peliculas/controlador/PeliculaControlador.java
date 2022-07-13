@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/")
@@ -31,5 +33,14 @@ public class PeliculaControlador {
     @PostMapping("/peliculas")
     public Pelicula guardarPelicula(@RequestBody Pelicula pelicula) {
         return repositorio.save(pelicula);
+    }
+
+    @DeleteMapping("/peliculas/{id}")
+    public ResponseEntity<Map<String, Boolean>> eliminarPelicula(@PathVariable Long id) {
+        Pelicula pelicula = repositorio.findById(id).orElseThrow(() -> new ResourceNotFoundException(("No existe la película con el ID " + id)));
+        repositorio.delete(pelicula);
+        Map<String, Boolean> respuesta = new HashMap<>();
+        respuesta.put("eliminar", Boolean.TRUE);
+        return ResponseEntity.ok(respuesta);
     }
 }
